@@ -1,0 +1,106 @@
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'tablesForCalculator.ui'
+#
+# Created: Sun Dec  1 13:57:36 2013
+#      by: PyQt5 UI code generator 5.1.1
+#
+# WARNING! All changes made in this file will be lost!
+
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication, QWidget, QPushButton
+
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        self.setData()
+        MainWindow.resize(684, 507)
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.tableView = QtWidgets.QTableView(self.centralwidget)
+        self.tableView.setGeometry(QtCore.QRect(10, 80, 256, 192))
+        self.tableView.setObjectName("tableView")
+        
+        self.tableWidget = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget.setGeometry(QtCore.QRect(300, 80, 300, 192))
+        self.tableWidget.setObjectName("tableWidget")
+        self.tableWidget.setColumnCount(3)
+        self.tableWidget.setRowCount(3)
+        
+        self.tableWidget_2 = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget_2.setGeometry(QtCore.QRect(10, 10, 590, 51))
+        self.tableWidget_2.setObjectName("tableWidget2")
+        self.tableWidget_2.setColumnCount(5)
+        self.tableWidget_2.setRowCount(1)
+        self.tableWidget_2.setHorizontalHeaderLabels(("Duel(1 Caster)",
+                                                      "Skirmish(1 Caster)",
+                                                      "Grand Melee(1 Caster)",
+                                                      "Battle Royale(2 Caster)",
+                                                      "War(3 Caster)"))
+        radioLayout = QtWidgets.QVBoxLayout()
+        #for battle in ("duel"):
+        for button in self.armyValueRadio['duel']['buttons']:
+            radioLayout.addItem(button)
+        self.tableWidget_2.setCellWidget(0,0,radioLayout)
+        self.tableWidget_2.resizeColumnsToContents()
+        self.tableWidget_2.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget_2.verticalHeader().setVisible(False)
+        
+        self.tableWidget_3 = QtWidgets.QTableWidget(self.centralwidget)
+        self.tableWidget_3.setGeometry(QtCore.QRect(10, 280, 256, 192))
+        self.tableWidget_3.setObjectName("tableWidget3")
+        self.tableWidget_3.setColumnCount(0)
+        self.tableWidget_3.setRowCount(0)
+        
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 684, 21))
+        self.menubar.setObjectName("menubar")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def setData(self):
+        self.armyValueRadio = {}
+        self.armyValueRadio['duel'] = {'title':'Duel(1 Caster)',
+                                       'buttons':(QtWidgets.QRadioButton('15'),
+                                                  QtWidgets.QRadioButton('25'),
+                                                  QtWidgets.QRadioButton('35')) }
+        self.armyValueRadio['skirmish'] = {'title':'Skirmish(1 Caster)',
+                                           'buttons':(QtWidgets.QRadioButton('15'),
+                                                      QtWidgets.QRadioButton('25'),
+                                                      QtWidgets.QRadioButton('35'))}
+        self.armyValueRadio['melee'] = {'title':'Grand Melee(1 Caster)',
+                                        'buttons':(QtWidgets.QRadioButton('75'),
+                                                   QtWidgets.QRadioButton('100'))}
+        self.armyValueRadio['battle'] = {'title':'Battle Royale(2 Caster)',
+                                           'buttons':(QtWidgets.QRadioButton('100'),
+                                                      QtWidgets.QRadioButton('125'),
+                                                      QtWidgets.QRadioButton('150'))}
+        self.armyValueRadio['war'] = {'title':'War(3 Caster)',
+                                      'buttons':(QtWidgets.QRadioButton('150'),
+                                                 QtWidgets.QRadioButton('175'),
+                                                 QtWidgets.QRadioButton('200'))}
+        
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "Hordes Calculator"))
+        
+class warValue(QPushButton):
+    def init(self):
+        super(QPushButton)
+
+if __name__ == '__main__':
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    Form = QtWidgets.QMainWindow()
+    mainWindow = Ui_MainWindow()
+    mainWindow.setupUi(Form)
+    Form.show()
+    sys.exit(app.exec_())
+
+
